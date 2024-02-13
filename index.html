@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentines</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f3f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        img {
+            height: 100px;
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .tanong {
+            color: #b03e8a;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #b03e8a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        button:hover {
+            background-color: #8f306f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="heart.gif" alt="Heart">
+        <h1 class="tanong">Will you be my valentine?</h1>
+        <div class="buttons">
+            <button class="yes-btn">Yes</button>
+            <button class="no-btn">No</button>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+        const question = document.querySelector('.tanong');
+        const noBtn = document.querySelector('.no-btn');
+
+        document.querySelector('.yes-btn').addEventListener('click', () => {
+            question.innerHTML = '<a href="https://www.facebook.com/Chivsspogi">Chat ka na</a>';
+        });
+
+        noBtn.addEventListener('mouseover', () => {
+            const containerRect = container.getBoundingClientRect();
+            const noBtnRect = noBtn.getBoundingClientRect();
+            const i = Math.random() * (containerRect.width - noBtnRect.width);
+            const j = Math.random() * (containerRect.height - noBtnRect.height);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = i + 'px';
+            noBtn.style.top = j + 'px';
+        });
+    </script>
+</body>
+</html>
